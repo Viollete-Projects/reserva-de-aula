@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viollete - Sistema de Reservas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h2>Viollete</h2>
+        <nav>
+            <a onclick="mostrarPagina('dashboard')">Dashboard</a>
+            <a onclick="mostrarPagina('calendario')">Calendário</a>
+            <a onclick="mostrarPagina('salas')">Salas</a>
+            <a onclick="mostrarPagina('reservas')">Minhas Reservas</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <section id="dashboard" class="pagina">
+            <h1>Painel de Controle</h1>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Suas Reservas</h3>
+                    <p id="count-reservas">0</p>
+                </div>
+                <div class="card">
+                    <h3>Status</h3>
+                    <p style="color: #2ecc71; font-size: 1.2rem;">Sistema Online</p>
+                </div>
+            </div>
+            <div class="aviso-box">
+                <h4>Informativo Viollete</h4>
+                <p>O Auditório estará reservado para o evento de tecnologia no dia 15/04.</p>
+            </div>
+        </section>
+
+        <section id="calendario" class="pagina">
+            <h1>Calendário</h1>
+            <div class="filtros">
+                <label>Prédio:</label>
+                <select id="predio">
+                    <option>Prédio A</option>
+                    <option>Prédio B</option>
+                </select>
+                <label>Filtrar por Sala:</label>
+                <select id="sala-filtro">
+                    <option value="Todas">Todas as Salas</option>
+                    <option value="Sala 101">Sala 101</option>
+                    <option value="Sala 102">Sala 102</option>
+                    <option value="Laboratório">Laboratório</option>
+                    <option value="Auditório">Auditório</option>
+                </select>
+            </div>
+            <div id="calendar"></div>
+        </section>
+
+        <section id="salas" class="pagina">
+            <h1>Salas</h1>
+            <div class="salas-grid">
+                <div class="sala"><h3>Sala 101</h3><p>Projetor & AC</p></div>
+                <div class="sala"><h3>Sala 102</h3><p>Apenas AC</p></div>
+                <div class="sala"><h3>Laboratório</h3><p>30 Computadores</p></div>
+                <div class="sala"><h3>Auditório</h3><p>Som & Palco</p></div>
+            </div>
+        </section>
+
+        <section id="reservas" class="pagina">
+            <h1>Minhas Reservas</h1>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sala</th>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaReservas"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
